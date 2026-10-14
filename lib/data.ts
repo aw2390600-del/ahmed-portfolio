@@ -171,3 +171,36 @@ export const PROJECTS = [
   },
 
 ];
+
+export const CERTIFICATES = [
+  {
+    id: "cert-google-ai",
+    title: "Boost Your Productivity with AI",
+    issuer: "مهارات من Google & إنجاز مصر",
+    date: "Google Certified",
+    image: "/certificates/cert-real-google.jpg",
+    credentialId: "GOOG-AI-PROD-2024",
+    tags: ["Google AI", "Productivity", "AI Tools"],
+    description: "Training Completion Certificate for the Boost Your Productivity with AI course offered by Google Maharat & INJAZ Egypt."
+  },
+  {
+    id: "cert-pmi-injaz",
+    title: "Project Management Training",
+    issuer: "Project Management Institute (PMI) & INJAZ Al-Arab",
+    date: "PMI Certified",
+    image: "/certificates/cert-real-pmi.jpg",
+    credentialId: "PMI-EF-INJAZ-ACHV",
+    tags: ["Project Management", "PMI", "Leadership"],
+    description: "Certificate of Achievement for successfully completing a training session on Project Management content offered by the Project Management Institute (PMI)."
+  },
+  {
+    id: "cert-innovation-camp",
+    title: "معسكر الابتكار — Innovation Camp",
+    issuer: "مؤسسة إنجاز مصر & وزارة الشباب والرياضة",
+    date: "Honor Certificate",
+    image: "/certificates/cert-real-injaz.jpg",
+    credentialId: "INJAZ-INNOV-CAMP-EG",
+    tags: ["Innovation", "Entrepreneurship", "Youth & Sports"],
+    description: "شهادة تقدير لاجتياز وإتمام برنامج معسكر الابتكار بنجاح بالتعاون مع وزارة الشباب والرياضة ومؤسسة إنجاز مصر."
+  }
+];

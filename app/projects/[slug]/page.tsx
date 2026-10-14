@@ -23,20 +23,21 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const nextProject = PROJECTS[projectIndex + 1] || PROJECTS[0];
 
   return (
-    <article className="bg-[#FAF9F6] min-h-screen pt-24 pb-12 text-[#2C2C2C]">
+    <article className="bg-[#08080b] min-h-screen pt-28 pb-16 text-white relative">
+      {/* Top Back Nav */}
       <div className="px-6 md:px-12 max-w-7xl mx-auto mb-8">
         <Link 
           href="/#work" 
-          className="inline-flex items-center gap-2 text-sm font-medium text-[#8B9085] hover:text-[#2C2C2C] transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-400 hover:text-[#ff6b00] transition-colors"
         >
-          <ArrowLeft className="w-4 h-4" />
-          BACK TO WORK
+          <ArrowLeft className="w-4 h-4 text-[#ff6b00]" />
+          BACK TO ALL PROJECTS
         </Link>
       </div>
 
-      {/* Project Cover */}
+      {/* Project Cover Container with Glowing Border */}
       <div className="px-6 md:px-12 max-w-[100rem] mx-auto mb-20">
-        <div className="w-full aspect-video md:aspect-[21/9] bg-[#D6CDB3]/20 rounded-[2rem] flex items-center justify-center text-[#8B9085] overflow-hidden relative shadow-lg">
+        <div className="w-full aspect-video md:aspect-[21/9] bg-[#0e0e15] border border-white/[0.08] shadow-[0_0_40px_rgba(255,107,0,0.15)] rounded-3xl flex items-center justify-center overflow-hidden relative">
           <Image
             src={project.coverImage}
             alt={`${project.title} Cover`}
@@ -44,76 +45,87 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             className="object-cover"
             priority
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#08080b] via-transparent to-transparent opacity-50" />
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 md:px-12 mb-32">
-        {/* Overview */}
-        <div className="grid md:grid-cols-[1fr_300px] gap-12 items-start mb-24 border-b border-[#D6CDB3]/30 pb-24">
+      <div className="max-w-5xl mx-auto px-6 md:px-12 mb-32">
+        {/* Overview Header */}
+        <div className="grid md:grid-cols-[1fr_280px] gap-12 items-start mb-24 border-b border-white/[0.08] pb-20">
           <div>
-            <h1 className="text-5xl md:text-7xl font-medium tracking-tight mb-6">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[#ff6b00] mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ff6b00] shadow-[0_0_8px_#ff6b00]" />
+              Project Case Study
+            </div>
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-6 text-white">
               {project.title}
             </h1>
-            <p className="text-xl md:text-2xl font-light text-[#8B9085] leading-relaxed">
+            <p className="text-lg sm:text-xl font-light text-neutral-300 leading-relaxed">
               {project.shortDescription}
             </p>
           </div>
           
-          <div className="flex flex-col gap-6 text-sm">
+          {/* Metadata Card */}
+          <div className="p-6 rounded-2xl bg-[#0e0e15] border border-white/[0.08] flex flex-col gap-5 text-sm">
             <div>
-              <div className="font-semibold tracking-widest uppercase text-[#8B9085]/60 mb-1">Category</div>
-              <div className="text-lg font-medium">{project.category}</div>
+              <div className="text-[11px] font-mono uppercase tracking-widest text-[#ff6b00] mb-1">Category</div>
+              <div className="text-base font-semibold text-white">{project.category}</div>
             </div>
             <div>
-              <div className="font-semibold tracking-widest uppercase text-[#8B9085]/60 mb-1">Year</div>
-              <div className="text-lg font-medium">{project.year}</div>
+              <div className="text-[11px] font-mono uppercase tracking-widest text-[#ff6b00] mb-1">Year</div>
+              <div className="text-base font-semibold text-white">{project.year}</div>
             </div>
             <div>
-              <div className="font-semibold tracking-widest uppercase text-[#8B9085]/60 mb-1">Role</div>
-              <div className="text-lg font-medium">{project.role}</div>
+              <div className="text-[11px] font-mono uppercase tracking-widest text-[#ff6b00] mb-1">Role</div>
+              <div className="text-base font-semibold text-white">{project.role}</div>
             </div>
           </div>
         </div>
 
         {/* Content Sections */}
-        <div className="flex flex-col gap-32">
+        <div className="flex flex-col gap-28">
           
           {/* The Challenge */}
-          <section className="grid md:grid-cols-[300px_1fr] gap-8">
-            <h2 className="text-2xl font-medium tracking-tight">The Challenge</h2>
-            <p className="text-xl text-[#8B9085] font-light leading-relaxed">
+          <section className="grid md:grid-cols-[240px_1fr] gap-8 p-8 rounded-3xl bg-[#0e0e15] border border-white/[0.08]">
+            <h2 className="text-2xl font-bold tracking-tight text-[#ff6b00]">The Challenge</h2>
+            <p className="text-base sm:text-lg text-neutral-300 font-light leading-relaxed">
               {project.challenge}
             </p>
           </section>
 
           {/* The Idea */}
-          <section className="grid md:grid-cols-[300px_1fr] gap-8">
-            <h2 className="text-2xl font-medium tracking-tight">The Idea</h2>
-            <p className="text-xl text-[#8B9085] font-light leading-relaxed">
+          <section className="grid md:grid-cols-[240px_1fr] gap-8 p-8 rounded-3xl bg-[#0e0e15] border border-white/[0.08]">
+            <h2 className="text-2xl font-bold tracking-tight text-[#ff6b00]">The Idea</h2>
+            <p className="text-base sm:text-lg text-neutral-300 font-light leading-relaxed">
               {project.idea}
             </p>
           </section>
 
           {/* Final Result Gallery */}
           <section>
-            <h2 className="text-2xl font-medium tracking-tight mb-12">Final Result</h2>
+            <div className="flex items-center justify-between mb-12">
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+                Final <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-100 to-[#ff6b00]">Visuals</span>
+              </h2>
+              <span className="text-xs font-mono text-neutral-400">Click to expand</span>
+            </div>
             <ProjectGallery images={project.images} title={project.title} />
           </section>
         </div>
       </div>
 
-      {/* Next Project */}
-      <div className="border-t border-[#D6CDB3]/30 bg-white/50 py-32 px-6 md:px-12 text-center flex flex-col items-center">
-        <span className="text-sm font-semibold tracking-widest uppercase text-[#8B9085]/60 mb-6">
-          Next Project
+      {/* Next Project Footer */}
+      <div className="border-t border-white/[0.08] bg-[#060608] py-28 px-6 md:px-12 text-center flex flex-col items-center">
+        <span className="text-xs font-mono font-semibold tracking-widest uppercase text-[#ff6b00] mb-6">
+          Next Case Study
         </span>
         <Link 
           href={`/projects/${nextProject.slug}`}
-          className="group text-5xl md:text-7xl font-medium tracking-tight hover:text-[#8B9085] transition-colors flex flex-col items-center gap-6"
+          className="group text-4xl sm:text-6xl font-extrabold tracking-tight text-white hover:text-[#ff6b00] transition-colors flex flex-col items-center gap-6"
         >
           {nextProject.title}
-          <div className="w-16 h-16 rounded-full bg-[#2C2C2C] text-[#FAF9F6] flex items-center justify-center group-hover:bg-[#D6CDB3] group-hover:text-[#2C2C2C] transition-colors">
-            <ArrowRight className="w-6 h-6 transition-transform duration-300 group-hover:translate-x-1" />
+          <div className="w-14 h-14 rounded-full bg-[#ff6b00] text-black flex items-center justify-center shadow-[0_0_20px_#ff6b00] group-hover:scale-110 transition-transform">
+            <ArrowRight className="w-6 h-6" />
           </div>
         </Link>
       </div>

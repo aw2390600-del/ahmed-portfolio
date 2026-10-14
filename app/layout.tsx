@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import CustomCursor from "@/components/CustomCursor";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -16,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ahmed Wahed — Graphic Designer, Developer & Veterinary Medicine Student",
-  description: "Ahmed Wahed is a multidisciplinary graphic designer and developer studying veterinary medicine, creating visual identities, digital experiences and creative projects.",
+  title: "Ahmed Wahed — Designer, Developer & Creative Technologist",
+  description: "Ahmed Wahed (AW DESIGN) — Multidisciplinary Graphic Designer, Full Stack Web Developer & AI Creative studying Veterinary Medicine at Delta University.",
 };
 
 export default function RootLayout({
@@ -29,9 +30,10 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth dark`}
     >
-      <body className="bg-[#FAF9F6] text-[#2C2C2C] selection:bg-[#D6CDB3] selection:text-[#2C2C2C] min-h-screen flex flex-col font-sans relative">
+      <body className="bg-[#08080b] text-[#f4f4f5] selection:bg-[#ff6b00] selection:text-black min-h-screen flex flex-col font-sans relative overflow-x-hidden">
+        <CustomCursor />
         <Navbar />
         <main className="flex-grow">
           {children}
